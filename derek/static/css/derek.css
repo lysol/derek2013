@@ -1,0 +1,51 @@
+body {
+	font-family: 'EB Garamond', Garamond, Georgia, serif;
+	font-size: 22px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+}
+
+h1 {
+	font-size: 48px;
+}
+
+.container {
+	width: 28em;
+	margin: 3em auto;
+}
+
+.content {
+
+}
+
+.icon {
+	height: 4.182em;
+}
+
+.antenna {
+	width: 2.2725em;
+}
+
+.header {
+	margin-bottom: 1em;
+	text-align: center;
+	font-size: 2.5em;	
+}
+
+.footer {
+	font-size: 18px;
+	color: #8a8a8a;
+	margin-top: 3em;
+}
+
+.twitter {
+	width: 1em;
+	height: 0.84em;
+	margin-left: 0.5em;
+	vertical-align: 0%;
+}
+
+.post-header {
+	margin-bottom: 3em;
+}

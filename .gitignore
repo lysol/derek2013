@@ -1,0 +1,5 @@
+*.pyc
+build/
+derek.egg-info/
+.DS_Store
+dist/
