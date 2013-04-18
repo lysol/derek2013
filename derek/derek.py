@@ -4,6 +4,7 @@ import markdown
 import default_settings
 import json
 import datetime
+from dateutil.parser import parse as dateparse
 
 instance_path = os.path.expanduser('~/derek_instance/')
 
@@ -55,6 +56,8 @@ class Post:
         if comment is None:
             raise Exception("No post metadata detected.")
         return {'title': json_body['title'],
+                'post_date': json_body['post_date'] if
+                'post_date' in json_body else None,
                 'contents': markdown.markdown(contents[i+2:]),
                 'icon': json_body['icon'] if 'icon' in json_body else None}
 
@@ -66,7 +69,13 @@ class Post:
             contents = handle.read()
             handle.close()
             stuff = cls.parse(contents)
-            mtime = os.path.getmtime(ofile)
+            print stuff.keys()
+            if 'post_date' in stuff:
+                print 'post_date'
+                mtime = float(dateparse(stuff['post_date']).strftime('%s'))
+            else:
+                print 'fack'
+                mtime = os.path.getmtime(ofile)
             return Post(slug.split('.')[0], stuff['title'], stuff['contents'],
                         datetime.datetime.fromtimestamp(mtime), icon=stuff['icon'])
         else:

@@ -14,7 +14,8 @@ setup(name='derek',
       packages=['derek'],
       zip_safe=False,
       install_requires=[
-          'Flask'
+          'Flask',
+          'python-dateutil'
       ],
       include_package_data=True,
       package_data={
