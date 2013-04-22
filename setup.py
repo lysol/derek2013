@@ -15,7 +15,8 @@ setup(name='derek',
       zip_safe=False,
       install_requires=[
           'Flask',
-          'python-dateutil'
+          'python-dateutil',
+          'feedgenerator'
       ],
       include_package_data=True,
       package_data={
