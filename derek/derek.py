@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, url_for
 import markdown
 import default_settings
 import json
@@ -13,6 +13,12 @@ app.config.from_object('derek.default_settings')
 external_cfg = os.path.join(app.instance_path, 'application.cfg')
 app.config.from_pyfile(external_cfg, silent=True)
 app.TRAP_BAD_REQUEST_ERRORS = True
+
+
+class DerekException:
+
+    def __init__(self, text):
+        self.text = text
 
 
 class Post:
@@ -32,10 +38,27 @@ class Post:
         self.icon = icon
 
     @classmethod
-    def index(cls):
+    def index(cls, include_future=False):
         filtered = filter(lambda x: x[-9:] == '.markdown' or x[-3:] == '.md',
                           os.listdir(cls.posts_path()))
-        indexed = [cls.load(file, True) for file in filtered]
+        indexed = filter(lambda x: x is not None,
+                         [cls.load(file, True) for file in filtered])
+
+        def datesort(x, y):
+            if x.create_date > y.create_date:
+                return 1
+            elif x.create_date < y.create_date:
+                return -1
+            else:
+                return 0
+
+        def nofuture(x):
+            return x.create_date <= datetime.datetime.now()
+
+        indexed.sort(datesort)
+        indexed.reverse()
+        if not include_future:
+            indexed = filter(nofuture, indexed)
         return indexed
 
     @classmethod
@@ -45,16 +68,16 @@ class Post:
         comment = None
         json_body = None
         for i in range(0, len(contents)):
-            if contents[i:i+2] == '/*':
+            if contents[i:i+4] == '<!--':
                 in_comment = True
                 comment_start = i
-            elif in_comment and contents[i:i+2] == '*/':
+            elif in_comment and contents[i:i+3] == '-->':
                 in_comment = False
-                comment = contents[comment_start+2:i]
+                comment = contents[comment_start+4:i]
                 json_body = json.loads(comment.replace('\n', ''))
                 break
         if comment is None:
-            raise Exception("No post metadata detected.")
+            raise DerekException("No post metadata detected.")
         return {'title': json_body['title'],
                 'post_date': json_body['post_date'] if
                 'post_date' in json_body else None,
@@ -68,19 +91,24 @@ class Post:
             handle = open(ofile)
             contents = handle.read()
             handle.close()
-            stuff = cls.parse(contents)
-            print stuff.keys()
-            if 'post_date' in stuff:
-                print 'post_date'
-                mtime = float(dateparse(stuff['post_date']).strftime('%s'))
-            else:
-                print 'fack'
-                mtime = os.path.getmtime(ofile)
-            return Post(slug.split('.')[0], stuff['title'], stuff['contents'],
-                        datetime.datetime.fromtimestamp(mtime), icon=stuff['icon'])
+            try:
+                stuff = cls.parse(contents)
+                if 'post_date' in stuff:
+                    mtime = float(dateparse(stuff['post_date']).strftime('%s'))
+                else:
+                    mtime = os.path.getmtime(ofile)
+                return Post(slug.split('.')[0], stuff['title'], stuff['contents'],
+                            datetime.datetime.fromtimestamp(mtime), icon=stuff['icon'])
+            except DerekException:
+                return None
         else:
-            print "Not found: " + ofile
             return None
+
+    def get_icon(self):
+        return self.icon if self.icon is not None else 'antenna'
+
+    def icon_url(self):
+        return url_for('static', filename='img/icons/' + self.get_icon() + '.png')
 
 
 @app.route('/<path:path>')
@@ -88,6 +116,9 @@ class Post:
 def all(path):
     if path == '':
         posts = Post.index()
+        return render_template('home.html', posts=posts)
+    elif path == 'future':
+        posts = Post.index(True)
         return render_template('home.html', posts=posts)
     slug = path.split('/')[0]
     post = Post.load(slug)

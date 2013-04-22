@@ -29,7 +29,7 @@
                     {% if post is not defined %}
                     <img src="{{ url_for('static', filename='img/icons/antenna.png') }}" class="antenna icon" />
                     {% else %}
-                    <img src="{{ url_for('static', filename='img/icons/' + post.icon + '.png') }}" class="{{ icon }} icon" />
+                    <img src="{{ post.icon_url() }}" class="{{ post.get_icon() }} icon" />
                     {% endif %}
                 </a>
             </div>

@@ -2,11 +2,14 @@
 {% block content %}
 
 <div class="content">
-    <ul>
+    <ul class="home-posts">
         {% for post in posts %}
-        <li><a href="{{ url_for('all', path=post.slug) }}">{{ post.title }}</a></li>
+        <li><a href="{{ url_for('all', path=post.slug) }}"><img class="home-icon" src="{{ post.icon_url() }}" alt=""> 
+        	{{ post.title }}</a><br />
+        	<span class="post-date">{{ post.created_formatted() }}</span></li>
         {% endfor %}
     </ul>
+	<div class="clear"></div>
 </div>
 
 {% endblock %}

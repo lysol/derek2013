@@ -3,20 +3,17 @@ body {
 	font-size: 22px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-}
-
 h1 {
 	font-size: 48px;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+	color: #008090;
 }
 
 .container {
 	width: 28em;
 	margin: 3em auto;
-}
-
-.content {
-
 }
 
 .icon {
@@ -43,9 +40,37 @@ h1 {
 	width: 1em;
 	height: 0.84em;
 	margin-left: 0.5em;
-	vertical-align: 0%;
+	vertical-align: 0;
 }
 
 .post-header {
 	margin-bottom: 3em;
+}
+
+.center {
+	text-align: center;
+}
+
+.home-posts ul {
+	margin: auto;
+	width: 100%;
+	clear: both;
+}
+
+.home-posts li {
+	list-style: none;
+	vertical-align: middle;
+	margin-bottom: 3em;
+	clear: left;
+	height: 5em;
+}
+
+.home-icon {
+	width: 5em;
+	margin-right: 1em;
+	float: left;
+}
+
+.post-date {
+	color: #AAAAAA;
 }
