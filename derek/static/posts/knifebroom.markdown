@@ -15,7 +15,7 @@ In short order, the second alarm begins to chirp shortly after the first. I assu
 
 Meanwhile, I fashion a Knifebroom:
 
-<img src="http://i.imgur.com/JCD77.jpg" width="300" height="403" alt="Knifebroom"/>
+<img src="http://i.imgur.com/JCD77.jpg" class="full-width-image" alt="Knifebroom"/>
 
 It's constructed with novelty duct tape from a White Elephant party last December for work, a butter knife, and our broom.
 

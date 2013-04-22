@@ -20,10 +20,6 @@ a, a:visited, a:hover, a:focus, a:active {
 	height: 4.182em;
 }
 
-.antenna {
-	width: 2.2725em;
-}
-
 .header {
 	margin-bottom: 1em;
 	text-align: center;
@@ -75,7 +71,7 @@ a, a:visited, a:hover, a:focus, a:active {
 	color: #AAAAAA;
 }
 
-.zine {
+.full-width-image {
 	width: 25em;
 }
 
@@ -85,7 +81,13 @@ and (max-width : 568px) {
 /* Styles */
 
 	h1 {
-		font-size: 36px;
+		font-size: 1.3em;
+		max-width: 13em;
+		font-weight: 400;
+		color: black;
+		-webkit-text-fill-color: color; /* Will override color (regardless of order) */
+		-webkit-text-stroke-width: 1px;
+	    -webkit-text-stroke-color: black;
 	}
 
 	.home-posts {
@@ -95,7 +97,7 @@ and (max-width : 568px) {
 
 	.container {
 		width: auto;
-		margin: 2em;
+		margin: 1em;
 	}
 
 	.home-posts li {
@@ -111,7 +113,7 @@ and (max-width : 568px) {
 		margin-top: 7em;
 	}
 
-	.zine {
-		width: 13em;
+	.full-width-image {
+		width: 11em;
 	}
 }
