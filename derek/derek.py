@@ -119,7 +119,7 @@ class Post:
     def feed_dict(self):
         return {
             "title": self.title,
-            "link": url_for('all', path=self.slug),
+            "link": 'http://derekarnold.net' + url_for('all', path=self.slug),
             "description": self.summary
         }
 
