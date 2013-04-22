@@ -22,7 +22,7 @@ of paper.
 Here is the zine I made there, which I called "Pyramid" or "Pyramids". I can't
 remember which, it also doesn't matter. Thanks for listening to my radio show.
 
-<div class="center"><a href="https://dl.dropboxusercontent.com/u/230241/pyramid.pdf"><img src="/static/img/pyramid.jpg" width="320" alt="Pyramid"><br />
+<div class="center"><a href="https://dl.dropboxusercontent.com/u/230241/pyramid.pdf"><img src="/static/img/pyramid.jpg" class="zine" alt="Pyramid"><br />
 Download (PDF)</a><br /><a href="http://artbeacondesmoines.com/image/45943457380">Folding Instructions Here</a></div>
 
 Also check out out Rua's zine ["Such Good Boys"](http://ruaarnold.tumblr.com/post/48559582564/my-first-ready-for-primetime-zine-is-available-for), which is much different than mine.

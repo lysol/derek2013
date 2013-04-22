@@ -75,13 +75,17 @@ a, a:visited, a:hover, a:focus, a:active {
 	color: #AAAAAA;
 }
 
+.zine {
+	width: 25em;
+}
+
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 568px) {
 /* Styles */
 
 	h1 {
-		font-size: 40px;
+		font-size: 36px;
 	}
 
 	.home-posts {
@@ -105,5 +109,9 @@ and (max-width : 568px) {
 
 	.footer {
 		margin-top: 7em;
+	}
+
+	.zine {
+		width: 13em;
 	}
 }
