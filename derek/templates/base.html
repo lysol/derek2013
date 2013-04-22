@@ -27,7 +27,7 @@
             <div class="header">
                 <a href="{{ url_for('all') }}">
                     {% if post is not defined %}
-                    <img src="{{ url_for('static', filename='img/icons/antenna.png') }}" class="antenna icon" />
+                    <img src="{{ url_for('static', filename='img/icons/disk.png') }}" class="disk icon" />
                     {% else %}
                     <img src="{{ post.icon_url() }}" class="{{ post.get_icon() }} icon" />
                     {% endif %}

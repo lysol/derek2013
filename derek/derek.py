@@ -105,7 +105,7 @@ class Post:
             return None
 
     def get_icon(self):
-        return self.icon if self.icon is not None else 'antenna'
+        return self.icon if self.icon is not None else 'disk'
 
     def icon_url(self):
         return url_for('static', filename='img/icons/' + self.get_icon() + '.png')
