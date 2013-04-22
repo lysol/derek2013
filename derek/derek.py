@@ -1,10 +1,11 @@
 import os
-from flask import Flask, render_template, abort, url_for
+from flask import Flask, render_template, abort, url_for, Response
 import markdown
 import default_settings
 import json
 import datetime
 from dateutil.parser import parse as dateparse
+import feedgenerator
 
 instance_path = os.path.expanduser('~/derek_instance/')
 
@@ -36,6 +37,10 @@ class Post:
         self.slug = slug
         self.create_date = create_date
         self.icon = icon
+
+    @classmethod
+    def feed(cls):
+        return (post.feed_dict for post in cls.index())
 
     @classmethod
     def index(cls, include_future=False):
@@ -109,6 +114,32 @@ class Post:
 
     def icon_url(self):
         return url_for('static', filename='img/icons/' + self.get_icon() + '.png')
+
+    @property
+    def feed_dict(self):
+        return {
+            "title": self.title,
+            "link": url_for('all', path=self.slug),
+            "description": self.summary
+        }
+
+    @property
+    def summary(self):
+        return self.contents if len(self.contents) < 255 else \
+            self.contents[:255] + '...'
+
+
+@app.route('/feed')
+def feed():
+    feed = feedgenerator.Rss201rev2Feed(
+        title="Derek R. Arnold",
+        link="http://derekarnold.net",
+        description="Derek R. Arnold's Famous Internet Content",
+        language="en"
+    )
+    map(lambda post: feed.add_item(**post), Post.feed())
+
+    return Response(feed.writeString('utf-8'), mimetype="text/xml")
 
 
 @app.route('/<path:path>')
