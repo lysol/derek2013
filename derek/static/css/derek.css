@@ -34,7 +34,6 @@ a, a:visited, a:hover, a:focus, a:active {
 	font-size: 18px;
 	color: #8a8a8a;
 	margin-top: 3em;
-	padding: 0 2.2em;
 }
 
 .twitter {
@@ -80,7 +79,31 @@ a, a:visited, a:hover, a:focus, a:active {
 @media only screen 
 and (max-width : 568px) {
 /* Styles */
+
+	h1 {
+		font-size: 40px;
+	}
+
+	.home-posts {
+		padding: 0;
+		margin: 0;
+	}
+
 	.container {
-		width: 10em;
+		width: auto;
+		margin: 2em;
+	}
+
+	.home-posts li {
+		min-height: 7em;
+	}
+
+	.home-posts li img {
+		display: block;
+		float: none;
+	}
+
+	.footer {
+		margin-top: 7em;
 	}
 }
