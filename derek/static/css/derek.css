@@ -12,7 +12,7 @@ a, a:visited, a:hover, a:focus, a:active {
 }
 
 .container {
-	width: 28em;
+	width: 26em;
 	margin: 3em auto;
 }
 
@@ -34,6 +34,7 @@ a, a:visited, a:hover, a:focus, a:active {
 	font-size: 18px;
 	color: #8a8a8a;
 	margin-top: 3em;
+	padding: 0 2.2em;
 }
 
 .twitter {
@@ -73,4 +74,13 @@ a, a:visited, a:hover, a:focus, a:active {
 
 .post-date {
 	color: #AAAAAA;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 568px) {
+/* Styles */
+	.container {
+		width: 10em;
+	}
 }
