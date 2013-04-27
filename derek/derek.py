@@ -120,7 +120,8 @@ class Post:
         return {
             "title": self.title,
             "link": 'http://derekarnold.net' + url_for('all', path=self.slug),
-            "description": self.summary
+            "description": self.summary,
+            "pubdate": self.create_date
         }
 
     @property
