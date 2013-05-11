@@ -4,9 +4,12 @@
 <div class="content">
     <ul class="home-posts">
         {% for post in posts %}
-        <li><a class="home-link" href="{{ url_for('all', path=post.slug) }}"><img class="home-icon" src="{{ post.icon_url() }}" alt=""> 
-        	{{ post.title }}</a><br />
-        	<span class="post-date">{{ post.created_formatted() }}</span></li>
+        <li><a class="home-link" href="{{ url_for('all', path=post.slug) }}"><img class="home-icon" src="{{ post.icon_url() }}" alt=""></a>
+        	<div class="left">
+	        	<a class="home-link" href="{{ url_for('all', path=post.slug) }}">{{ post.title }}</a><br />
+	        	<span class="post-date">{{ post.created_formatted() }}</span>
+        	</div>
+        </li>
         {% endfor %}
     </ul>
 	<div class="clear"></div>

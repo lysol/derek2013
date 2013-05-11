@@ -61,6 +61,12 @@ a, a:visited, a:hover, a:focus, a:active {
 	height: 5em;
 }
 
+	.left {
+		float: left;
+		margin-left: 0em;
+		margin-top: 0.9em;
+	}
+
 .home-icon {
 	width: 5em;
 	margin-right: 1em;
@@ -73,6 +79,10 @@ a, a:visited, a:hover, a:focus, a:active {
 
 .full-width-image {
 	width: 25em;
+}
+
+.footer {
+	text-align: center;
 }
 
 /* Smartphones (portrait) ----------- */
@@ -104,9 +114,12 @@ and (max-width : 568px) {
 		min-height: 7em;
 	}
 
+		.left {
+			width: 6em;
+		}
+
 	.home-posts li img {
 		display: block;
-		float: none;
 	}
 
 	.footer {
