@@ -134,7 +134,7 @@ and (max-width : 568px) {
 	}
 
 	.interim {
-		width: auto;
+		width: 15em;
 	}
 
 }
