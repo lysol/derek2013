@@ -85,6 +85,9 @@ a, a:visited, a:hover, a:focus, a:active {
 	text-align: center;
 }
 
+.interim {
+}
+
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 568px) {
@@ -129,4 +132,9 @@ and (max-width : 568px) {
 	.full-width-image {
 		width: 11em;
 	}
+
+	.interim {
+		width: auto;
+	}
+
 }
