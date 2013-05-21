@@ -42,7 +42,7 @@ as interesting.
 The first one takes a little bit to get going, but the thing that sticks out
 in my memory is there's this distorted bell noise with some long echoes. Lots
 of screaming, random piano. I guess this is the only instance of the guy from
-Whitehouse recording vocals. Whitehouse's contribution seems to be the production
+Nurse With Wound recording vocals. Whitehouse's contribution seems to be the production
 style, while the form and structure in a certain way are pretty obviously Nurse
 With Wound's doing, if you've listened to any of their other work.  If it wasn't
 some spread-spectrum chaos, it would indeed be a very minimalist track.
